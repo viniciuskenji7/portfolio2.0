@@ -2,6 +2,7 @@
 import TextPressure from '@/src/interfaces/components/animations/textPressure';
 import { AboutSection } from './aboutSection';
 import CurvedLoop from '../../components/animations/curvedLoop';
+import { StacksSection } from './stacksSection';
 
 export const HomePage = () => {
 
@@ -44,6 +45,7 @@ export const HomePage = () => {
                 className="custom-text-style"
             />
             <AboutSection />
+            <StacksSection />
         </>
     );
 }
