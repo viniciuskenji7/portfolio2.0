@@ -384,7 +384,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
     maskRepeat: 'repeat',
     maskSize: '150%',
     maskPosition: 'top calc(200% - (var(--background-y) * 5)) left calc(100% - var(--background-x))',
-    filter: 'brightness(0.66) contrast(1.33) saturate(0.33) opacity(0.5)',
+    filter: 'brightness(0.50) contrast(0.30) saturate(0.10) opacity(0.5)',
     animation: 'pc-holo-bg 18s linear infinite',
     animationPlayState: 'running' as const,
     mixBlendMode: 'color-dodge' as const,
@@ -435,7 +435,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
       hsla(207, 40%, 30%, 0.8) 90%
     )`,
     mixBlendMode: 'overlay',
-    filter: 'brightness(0.8) contrast(1.2)',
+    filter: 'brightness(0.8) contrast(1.5)',
     zIndex: 4,
     gridArea: '1 / -1',
     borderRadius: cardRadius,
@@ -453,7 +453,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
           className="absolute inset-0 z-0 pointer-events-none transition-opacity duration-200 ease-out"
           style={{
             background: `radial-gradient(circle at var(--pointer-x) var(--pointer-y), var(--behind-glow-color) 0%, transparent var(--behind-glow-size))`,
-            filter: 'blur(50px) saturate(1.1)',
+            filter: 'blur(30px) saturate(0.8)',
             opacity: 'calc(0.8 * var(--card-opacity))'
           }}
         />
@@ -520,11 +520,11 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                 className="w-full absolute left-1/2 bottom-px will-change-transform transition-transform duration-120 ease-out"
                 src={avatarUrl}
                 alt={`${name || 'User'} avatar`}
-                width={30}
-                height={30}
+                width={200}
+                height={200}
                 loading="lazy"
                 style={{
-                  transformOrigin: '50% 100%',
+                  transformOrigin: '100%1 100%',
                   transform:
                     'translateX(calc(-50% + (var(--pointer-from-left) - 0.5) * 6px)) translateZ(0) scaleY(calc(1 + (var(--pointer-from-top) - 0.5) * 0.02)) scaleX(calc(1 + (var(--pointer-from-left) - 0.5) * 0.01))',
                   borderRadius: cardRadius,
