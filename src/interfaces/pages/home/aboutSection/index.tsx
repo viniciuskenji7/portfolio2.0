@@ -15,7 +15,7 @@ export const AboutSection = () => {
                 <div className="flex flex-col gap-8 items-start justify-center text-white">
                     <SplitText
                         text="sobre mim"
-                        className="text-4xl font-bold text-center uppercase font-[rubik]"
+                        className="text-5xl font-bold text-center uppercase font-[rubik]"
                         delay={50}
                         duration={1.25}
                         ease="power3.out"
