@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@/interfaces/layouts/themeProvider";
+import { ThemeProvider } from "@/src/interfaces/layouts/themeProvider";
 import "./globals.css";
 import { Poppins } from 'next/font/google';
 import { Rubik } from 'next/font/google';

@@ -1,4 +1,4 @@
-import { HomePage } from "@/interfaces/pages/home"
+import { HomePage } from "@/src/interfaces/pages/home"
 
 export default function Home() {
   return (

@@ -1,5 +1,5 @@
 'use client';
-import TextPressure from '@/interfaces/components/animations/textPressure';
+import TextPressure from '@/src/interfaces/components/animations/textPressure';
 import { AboutSection } from './aboutSection';
 
 export const HomePage = () => {

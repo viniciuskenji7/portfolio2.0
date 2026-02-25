@@ -1,6 +1,6 @@
 'use client'
-import Particles from "@/interfaces/components/animations/bgParticles";
-import StaggeredMenu from "@/interfaces/components/animations/staggeredMenu";
+import Particles from "@/src/interfaces/components/animations/bgParticles";
+import StaggeredMenu from "@/src/interfaces/components/animations/staggeredMenu";
 
 interface ThemeProviderProps {
     children: React.ReactNode;
