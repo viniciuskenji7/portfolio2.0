@@ -1,6 +1,7 @@
 'use client';
 import TextPressure from '@/src/interfaces/components/animations/textPressure';
 import { AboutSection } from './aboutSection';
+import CurvedLoop from '../../components/animations/curvedLoop';
 
 export const HomePage = () => {
 
@@ -34,6 +35,14 @@ export const HomePage = () => {
                     />
                 </div>
             </div>
+            <CurvedLoop
+                marqueeText="Seja ✦ Bem-Vindo ✦ Ao ✦ Meu ✦ Portfólio ✦"
+                speed={2}
+                curveAmount={400}
+                direction="left"
+                interactive
+                className="custom-text-style"
+            />
             <AboutSection />
         </>
     );
