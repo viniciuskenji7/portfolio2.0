@@ -3,6 +3,8 @@ import TextPressure from '@/src/interfaces/components/animations/textPressure';
 import { AboutSection } from './aboutSection';
 import CurvedLoop from '../../components/animations/curvedLoop';
 import { StacksSection } from './stacksSection';
+import { ProjectsSection } from './projectsSection';
+import { ContactSection } from './contactSection';
 
 export const HomePage = () => {
 
@@ -46,6 +48,8 @@ export const HomePage = () => {
             />
             <AboutSection />
             <StacksSection />
+            <ProjectsSection />
+            <ContactSection />
         </>
     );
 }

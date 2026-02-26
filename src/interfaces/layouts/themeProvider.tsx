@@ -41,7 +41,7 @@ export const ThemeProvider = ({children}: ThemeProviderProps) => {
             />
             <Particles
                 particleColors={["#ffffff"]}
-                particleCount={400}
+                particleCount={500}
                 particleSpread={10}
                 speed={0.2}
                 particleBaseSize={100}
