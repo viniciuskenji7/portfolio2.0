@@ -22,28 +22,28 @@ const StarBorder = <T extends React.ElementType = 'button'>({
 
   return (
     <Component
-      className={`relative inline-block overflow-hidden rounded-[20px] ${className}`}
+      className={`relative inline-block overflow-hidden rounded-[20px] p-[2px] ${className}`} // p-[2px] cria o espaço da borda
       {...(rest as any)}
-      style={{
-        padding: `${thickness}px ${thickness * 2}px`,
-        ...(rest as any).style
-      }}
     >
       <div
-        className="absolute w-[300%] h-[50%] opacity-70 -bottom-2.5 right-[-250%] rounded-full animate-star-movement-bottom z-0"
+        className="absolute w-[300%] h-[100%] opacity-100 -bottom-10 right-[-50%] rounded-full animate-star-movement-bottom z-0"
         style={{
-          background: `radial-gradient(circle, ${color}, transparent 10%)`,
+          background: `radial-gradient(circle, ${color}, transparent 70%)`,
+          animation: `star-movement-bottom ${speed} linear infinite alternate`,
           animationDuration: speed
         }}
       ></div>
       <div
-        className="absolute w-[300%] h-[50%] opacity-70 -top-2.5 left-[-250%] rounded-full animate-star-movement-top z-0"
+        className="absolute w-[300%] h-[100%] opacity-100 -top-10 left-[-50%] rounded-full animate-star-movement-top z-0"
         style={{
-          background: `radial-gradient(circle, ${color}, transparent 10%)`,
+          background: `radial-gradient(circle, ${color}, transparent 70%)`,
+          animation: `star-movement-bottom ${speed} linear infinite alternate`,
           animationDuration: speed
         }}
       ></div>
-      <div className="relative z-1 bg-linear-to-b from-black to-gray-900 border border-gray-800 text-white text-center text-[16px] py-[16px] px-[26px] rounded-[20px]">
+
+      {/* O segredo está em manter o fundo aqui, mas com o padding do pai revelando o que está atrás */}
+      <div className="relative z-10 bg-black text-white text-center rounded-[18px] h-full w-full">
         {children}
       </div>
     </Component>
@@ -51,25 +51,3 @@ const StarBorder = <T extends React.ElementType = 'button'>({
 };
 
 export default StarBorder;
-
-// tailwind.config.js
-// module.exports = {
-//   theme: {
-//     extend: {
-//       animation: {
-//         'star-movement-bottom': 'star-movement-bottom linear infinite alternate',
-//         'star-movement-top': 'star-movement-top linear infinite alternate',
-//       },
-//       keyframes: {
-//         'star-movement-bottom': {
-//           '0%': { transform: 'translate(0%, 0%)', opacity: '1' },
-//           '100%': { transform: 'translate(-100%, 0%)', opacity: '0' },
-//         },
-//         'star-movement-top': {
-//           '0%': { transform: 'translate(0%, 0%)', opacity: '1' },
-//           '100%': { transform: 'translate(100%, 0%)', opacity: '0' },
-//         },
-//       },
-//     },
-//   }
-// }

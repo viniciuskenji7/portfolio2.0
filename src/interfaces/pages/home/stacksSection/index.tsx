@@ -1,6 +1,5 @@
 import SplitText from "@/src/interfaces/components/animations/splitText";
 import { CardStack } from "@/src/interfaces/components/cardStack";
-import Image from "next/image";
 import TypescriptIcon from '@/src/interfaces/assets/icons/typescript.svg'
 import NextIcon from '@/src/interfaces/assets/icons/nextdotjs.svg'
 import VueIcon from '@/src/interfaces/assets/icons/vuedotjs.svg'
@@ -14,20 +13,20 @@ import GitIcon from '@/src/interfaces/assets/icons/git.svg'
 export const StacksSection = () => {
 
     const cards = [
-        { icon: TypescriptIcon, title: 'Typescript' },
-        { icon: NextIcon, title: 'NextJS' },
-        { icon: VueIcon, title: 'VueJS' },
-        { icon: TailwindIcon, title: 'Tailwindcss' },
-        { icon: NodeIcon, title: 'NodeJS' },
-        { icon: PythonIcon, title: 'Python' },
-        { icon: LaravelIcon, title: 'Laravel' },
-        { icon: MysqlIcon, title: 'MySQL' },
-        { icon: GitIcon, title: 'Git e Github' },
+        { Icon: TypescriptIcon, title: 'Typescript' },
+        { Icon: NextIcon, title: 'NextJS' },
+        { Icon: VueIcon, title: 'VueJS' },
+        { Icon: TailwindIcon, title: 'Tailwindcss' },
+        { Icon: NodeIcon, title: 'NodeJS' },
+        { Icon: PythonIcon, title: 'Python' },
+        { Icon: LaravelIcon, title: 'Laravel' },
+        { Icon: MysqlIcon, title: 'MySQL' },
+        { Icon: GitIcon, title: 'Git e Github' },
     ]
 
     return (
         <div className="h-dvh w-full bg-black flex items-start justify-center pt-26">
-            <div className="h-full w-full flex flex-col items-center justify-start text-white gap-50">
+            <div className="h-full w-full flex flex-col items-center justify-start text-white gap-20">
                 <SplitText
                     text="tecnologias"
                     className="text-5xl font-bold text-center uppercase font-[rubik]"
@@ -41,16 +40,10 @@ export const StacksSection = () => {
                     rootMargin="-100px"
                     textAlign="start"
                 />
-                <div className="w-full pl-60 grid grid-rows-3 grid-cols-3 justify-center items-center">
+                <div className="w-1/2 grid grid-rows-3 grid-cols-3 justify-center items-center justify-items-center gap-5">
                     {cards.map((item, index) => (
                         <CardStack key={index}>
-                            <Image
-                                alt="Icon"
-                                src={item.icon}
-                                height={30}
-                                width={30}
-                                color="white"
-                            />
+                            <item.Icon className="w-20 h-20 text-gray-100" />
                             <h2 className="text-white text-xl ">
                                 {item.title}
                             </h2>

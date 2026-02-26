@@ -62,9 +62,9 @@ interface TiltEngine {
 }
 
 const ProfileCardComponent: React.FC<ProfileCardProps> = ({
-  avatarUrl = '<Placeholder for avatar URL>',
-  iconUrl = '<Placeholder for icon URL>',
-  grainUrl = '<Placeholder for grain URL>',
+  avatarUrl,
+  iconUrl,
+  grainUrl,
   innerGradient,
   behindGlowEnabled = true,
   behindGlowColor,
@@ -516,6 +516,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                 backfaceVisibility: 'hidden'
               }}
             >
+              {avatarUrl && (
               <Image
                 className="w-full absolute left-1/2 bottom-px will-change-transform transition-transform duration-120 ease-out"
                 src={avatarUrl}
@@ -535,6 +536,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                   t.style.display = 'none';
                 }}
               />
+              )}
               {showUserInfo && (
                 <div
                   className="absolute z-2 flex items-center justify-between backdrop-blur-[30px] border border-white/10 pointer-events-auto"
@@ -556,6 +558,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                       className="rounded-full overflow-hidden border border-white/10 shrink-0"
                       style={{ width: '48px', height: '48px' }}
                     >
+                      {(miniAvatarUrl || avatarUrl) && (
                       <Image
                         className="w-full h-full object-cover rounded-full"
                         src={miniAvatarUrl || avatarUrl}
@@ -567,9 +570,10 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                         onError={e => {
                           const t = e.target as HTMLImageElement;
                           t.style.opacity = '0.5';
-                          t.src = avatarUrl;
+                          if (avatarUrl) t.src = avatarUrl;
                         }}
                       />
+                      )}
                     </div>
                     <div className="flex flex-col items-start gap-1.5">
                       <div className="text-sm font-medium text-white/90 leading-none">@{handle}</div>
