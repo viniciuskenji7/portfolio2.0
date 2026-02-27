@@ -364,7 +364,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
 
   return (
     <div
-      className={`relative w-full h-screen overflow-y-auto overflow-x-visible ${className}`.trim()}
+      className={`relative w-full h-screen overflow-y-hidden overflow-x-visible ${className}`.trim()}
       ref={scrollerRef}
       style={{
         overscrollBehavior: '', // Mudado de 'contain' para 'auto'

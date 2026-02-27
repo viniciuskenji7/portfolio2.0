@@ -1,9 +1,53 @@
 import ScrollStack, { ScrollStackItem } from "@/src/interfaces/components/animations/scrollStack"
 import SplitText from "@/src/interfaces/components/animations/splitText"
+import sunnysideProject from '@/src/interfaces/assets/projectsImage/sunnyside-project.png';
+import isweetProject from '@/src/interfaces/assets/projectsImage/isweet-project.png';
+import cookinupProjectImage from '@/src/interfaces/assets/projectsImage/cookin-up.png';
+import wheaterAppMainImage from '@/src/interfaces/assets/projectsImage/wheater-app-main.png';
+import typingSpeedTestImage from '@/src/interfaces/assets/projectsImage/typing-speed-test.png';
+import snapImage from '@/src/interfaces/assets/projectsImage/snap.png';
+import calculatorAppImage from '@/src/interfaces/assets/projectsImage/calculator-app.png';
+import ghibliboxImage from '@/src/interfaces/assets/projectsImage/ghiblibox.png';
 import { ProjectsComponent } from "@/src/interfaces/components/projectsComponent"
 
 
 export const ProjectsSection = () => {
+
+    const projects = [
+        {
+            projectTitle: "Sunnyside",
+            projectImage: sunnysideProject,
+        },
+        {
+            projectTitle: "ISweet",
+            projectImage: isweetProject,
+        },
+        {
+            projectTitle: "Cookin up",
+            projectImage: cookinupProjectImage,
+        },
+        {
+            projectTitle: "Wheater App Main",
+            projectImage: wheaterAppMainImage,
+        },
+        {
+            projectTitle: "Typing Speed Test",
+            projectImage: typingSpeedTestImage,
+        },
+        {
+            projectTitle: "Calculator App",
+            projectImage: calculatorAppImage,
+        },
+        {
+            projectTitle: "Snap",
+            projectImage: snapImage,
+        },
+        {
+            projectTitle: "GhibliBox",
+            projectImage: ghibliboxImage,
+        },
+    ]
+
     return (
         <div className="h-screen w-full bg-black flex flex-col text-white">
             <SplitText
@@ -22,22 +66,19 @@ export const ProjectsSection = () => {
             <ScrollStack
                 itemDistance={320}
                 stackPosition="20"
-                itemStackDistance={10}
-                baseScale={0.6}
+                itemStackDistance={0}
+                baseScale={0.59}
                 scaleDuration={1}
             >
-                <ScrollStackItem>
-                    <ProjectsComponent />
-                </ScrollStackItem>
-                <ScrollStackItem>
-                    <ProjectsComponent />
-                </ScrollStackItem>
-                <ScrollStackItem>
-                    <ProjectsComponent />
-                </ScrollStackItem>
-                <ScrollStackItem>
-                    <ProjectsComponent />
-                </ScrollStackItem>
+                {projects.map((item, index) => (
+                    <ScrollStackItem key={index}>
+                        <ProjectsComponent 
+                            key={index}
+                            projectImage={item.projectImage}
+                            projectTitle={item.projectTitle}
+                        />
+                    </ScrollStackItem>
+                ))}
             </ScrollStack>
         </div>
     )
