@@ -1,43 +1,16 @@
 'use client';
-import TextPressure from '@/src/interfaces/components/animations/textPressure';
 import { AboutSection } from './aboutSection';
 import CurvedLoop from '../../components/animations/curvedLoop';
 import { StacksSection } from './stacksSection';
 import { ProjectsSection } from './projectsSection';
 import { ContactSection } from './contactSection';
+import { InitialSection } from './initialSection';
 
 export const HomePage = () => {
 
     return (
         <>
-            <div className='h-dvh w-full bg-black flex items-center justify-center'>
-                <div className='flex flex-col items-center justify-center'>
-                    <TextPressure
-                        text="vinicius"
-                        flex={true}
-                        alpha={false}
-                        stroke={false}
-                        width
-                        weight
-                        italic
-                        textColor="#ffffff"
-                        strokeColor="#5227FF"
-                        minFontSize={400}
-                    />
-                    <TextPressure
-                        text="kenji"
-                        flex={true}
-                        alpha={false}
-                        stroke={false}
-                        width
-                        weight
-                        italic
-                        textColor="#ffffff"
-                        strokeColor="#5227FF"
-                        minFontSize={400}
-                    />
-                </div>
-            </div>
+            <InitialSection/>
             <CurvedLoop
                 marqueeText="Seja ✦ Bem-Vindo ✦ Ao ✦ Meu ✦ Portfólio ✦"
                 speed={2}
