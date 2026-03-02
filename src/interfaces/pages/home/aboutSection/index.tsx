@@ -64,25 +64,34 @@ export const AboutSection = () => {
                             scale={1}
                             threshold={0.1}
                             delay={1}
-                            className="flex items-center gap-3"
+                            className="flex flex-col items-start justify-center gap-5"
                         >
-                            <Link target="_blank" href={'https://www.linkedin.com/in/vinicius-kenji-dos-santos-enoki-097528265/'}>
-                                <Image
-                                    alt="Linkedin Icon"
-                                    src={linkedin}
-                                    height={50}
-                                    width={50}
-                                    className="transition-all hover:transform hover:scale-105"
-                                />
-                            </Link>
-                            <Link target="_blank" href={'https://github.com/viniciuskenji7'}>
-                                <Image
-                                    alt="Github Icon"
-                                    src={github}
-                                    height={60}
-                                    width={60}
-                                    className="transition-all hover:transform hover:scale-105"
-                                />
+                            <div className="flex items-center gap-3">
+                                <Link target="_blank" href={'https://www.linkedin.com/in/vinicius-kenji-dos-santos-enoki-097528265/'}>
+                                    <Image
+                                        alt="Linkedin Icon"
+                                        src={linkedin}
+                                        height={50}
+                                        width={50}
+                                        className="transition-all hover:transform hover:scale-105"
+                                    />
+                                </Link>
+                                <Link target="_blank" href={'https://github.com/viniciuskenji7'}>
+                                    <Image
+                                        alt="Github Icon"
+                                        src={github}
+                                        height={60}
+                                        width={60}
+                                        className="transition-all hover:transform hover:scale-105"
+                                    />
+                                </Link>
+                            </div>
+                            <Link 
+                                download={'Curriculo Vinicius Kenji.pdf'}
+                                href={'https://github.com/viniciuskenji7'}
+                                className="w-full py-3 px-6 cursor-pointer bg-white text-black font-semibold font-[poppins] rounded-lg hover:bg-white/90 transition-colors duration-200"
+                            >
+                                Baixar CV
                             </Link>
                         </AnimatedContent>
                     </div>

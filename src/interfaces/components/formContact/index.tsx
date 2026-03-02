@@ -59,7 +59,7 @@ export const FormContact = () => {
 
                 <button
                     type="submit"
-                    className="w-full py-3 px-6 cursor-pointer bg-white text-black font-semibold rounded-lg hover:bg-white/90 transition-colors duration-200"
+                    className="w-full py-3 px-6 cursor-pointer bg-white font-[poppins] text-black font-semibold rounded-lg hover:bg-white/90 transition-colors duration-200"
                 >
                     Enviar Mensagem
                 </button>

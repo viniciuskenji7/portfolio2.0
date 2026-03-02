@@ -6,17 +6,17 @@ interface ProjectsComponentProps {
     projectTitle: string;
 }
 
-export const ProjectsComponent = ({projectImage, projectTitle}: ProjectsComponentProps) => {
+export const ProjectsComponent = ({ projectImage, projectTitle }: ProjectsComponentProps) => {
 
     return (
-        <div className="h-screen w-full flex flex-col items-start justify-center gap-5">
-            <h3 className="text-2xl font-[poppins]">{projectTitle}</h3>
+        <div className="h-screen w-full ">
             <Link
                 href={'/'}
                 target="_self"
                 className="hover:transform hover:scale-102 transition-all"
             >
-                <div className="p-10 border border-white rounded-md w-full h-full bg-white">
+                <div className="p-5 border border-white rounded-md w-full h-full bg-white flex flex-col items-start justify-center gap-5 text-black">
+                    <h3 className="text-2xl font-[poppins]">{projectTitle}</h3>
                     <Image
                         alt="Image Projects"
                         src={projectImage.src}
