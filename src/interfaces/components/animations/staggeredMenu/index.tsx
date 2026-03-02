@@ -2,7 +2,7 @@
 
 import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 export interface StaggeredMenuItem {
   label: string;
@@ -21,7 +21,7 @@ export interface StaggeredMenuProps {
   displaySocials?: boolean;
   displayItemNumbering?: boolean;
   className?: string;
-  logoUrl?: string;
+  logoUrl?: StaticImageData | string;
   menuButtonColor?: string;
   openMenuButtonColor?: string;
   accentColor?: string;
@@ -40,7 +40,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   displaySocials = true,
   displayItemNumbering = true,
   className,
-  logoUrl = '/src/assets/logos/reactbits-gh-white.svg',
+  logoUrl = '',
   menuButtonColor = '#fff',
   openMenuButtonColor = '#fff',
   changeMenuColorOnOpen = true,
@@ -421,22 +421,21 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         >
           <div className="sm-logo flex items-center select-none pointer-events-auto" aria-label="Logo">
             {(logoUrl || '/assets/logos/reactbits-gh-white.svg') && (
-            <Image
-              src={logoUrl || '/assets/logos/reactbits-gh-white.svg'}
-              alt="Logo"
-              className="sm-logo-img block h-8 w-auto object-contain"
-              draggable={false}
-              width={110}
-              height={24}
-            />
+              <Image
+                src={logoUrl || '/assets/logos/reactbits-gh-white.svg'}
+                alt="Logo"
+                className="sm-logo-img block h-20 w-auto object-contain"
+                draggable={false}
+                width={110}
+                height={100}
+              />
             )}
           </div>
 
           <button
             ref={toggleBtnRef}
-            className={`sm-toggle relative inline-flex items-center gap-[0.3rem] bg-transparent border-0 cursor-pointer font-medium leading-none overflow-visible pointer-events-auto ${
-              open ? 'text-black' : 'text-[#e9e9ef]'
-            }`}
+            className={`sm-toggle relative inline-flex items-center gap-[0.3rem] bg-transparent border-0 cursor-pointer font-medium leading-none overflow-visible pointer-events-auto ${open ? 'text-black' : 'text-[#e9e9ef]'
+              }`}
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
             aria-controls="staggered-menu-panel"

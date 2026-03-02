@@ -2,6 +2,7 @@ import { ThemeProvider } from "@/src/interfaces/layouts/themeProvider";
 import "./globals.css";
 import { Poppins } from 'next/font/google';
 import { Rubik } from 'next/font/google';
+import { Metadata } from "next";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -13,7 +14,13 @@ const rubik = Rubik({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800', '900'],
   display: 'swap',
-}); 
+});
+
+export const metadata: Metadata = {
+  title: 'Kenji!',
+  description: 'Este é o Portfólio Animado do Desenvolvedor Vinicius Kenji e nele, contém seus projetos, stacks e informações gerais. Entre em contato caso goste!',
+  
+}
 
 export default function RootLayout({
   children,

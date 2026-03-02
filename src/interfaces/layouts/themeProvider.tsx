@@ -1,6 +1,7 @@
 'use client'
 import Particles from "@/src/interfaces/components/animations/bgParticles";
 import StaggeredMenu from "@/src/interfaces/components/animations/staggeredMenu";
+import logo from "@/src/interfaces/assets/icons/meuIcon.png";
 
 interface ThemeProviderProps {
     children: React.ReactNode;
@@ -34,7 +35,7 @@ export const ThemeProvider = ({children}: ThemeProviderProps) => {
                 openMenuButtonColor="#fff"
                 changeMenuColorOnOpen={true}
                 colors={['#B19EEF', '#5227FF']}
-                logoUrl="/path-to-your-logo.svg"
+                logoUrl={logo}
                 accentColor="#5227FF"
                 onMenuOpen={() => console.log('Menu opened')}
                 onMenuClose={() => console.log('Menu closed')}
