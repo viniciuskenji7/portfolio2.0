@@ -17,9 +17,8 @@ export const ThemeProvider = ({children}: ThemeProviderProps) => {
     ];
     
     const socialItems = [
-        { label: 'Twitter', link: 'https://twitter.com' },
-        { label: 'GitHub', link: 'https://github.com' },
-        { label: 'LinkedIn', link: 'https://linkedin.com' }
+        { label: 'GitHub', link: 'https://github.com/viniciuskenji7' },
+        { label: 'LinkedIn', link: 'https://www.linkedin.com/in/vinicius-kenji-dos-santos-enoki-097528265/' }
     ];
 
     return (

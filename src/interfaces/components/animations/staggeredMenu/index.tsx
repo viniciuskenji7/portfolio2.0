@@ -421,21 +421,22 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         >
           <div className="sm-logo flex items-center select-none pointer-events-auto" aria-label="Logo">
             {(logoUrl || '/assets/logos/reactbits-gh-white.svg') && (
-              <Image
-                src={logoUrl || '/assets/logos/reactbits-gh-white.svg'}
-                alt="Logo"
-                className="sm-logo-img block h-20 w-auto object-contain"
-                draggable={false}
-                width={110}
-                height={100}
-              />
+            <Image
+              src={logoUrl || '/assets/logos/reactbits-gh-white.svg'}
+              alt="Logo"
+              className="md-logo-img block h-12 w-auto object-contain"
+              draggable={false}
+              width={110}
+              height={30}
+            />
             )}
           </div>
 
           <button
             ref={toggleBtnRef}
-            className={`sm-toggle relative inline-flex items-center gap-[0.3rem] bg-transparent border-0 cursor-pointer font-medium leading-none overflow-visible pointer-events-auto ${open ? 'text-black' : 'text-[#e9e9ef]'
-              }`}
+            className={`sm-toggle relative inline-flex items-center gap-[0.3rem] bg-transparent border-0 cursor-pointer font-medium leading-none overflow-visible pointer-events-auto ${
+              open ? 'text-black' : 'text-[#e9e9ef]'
+            }`}
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
             aria-controls="staggered-menu-panel"
