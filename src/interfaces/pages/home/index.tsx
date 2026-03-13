@@ -13,8 +13,8 @@ export const HomePage = () => {
             <InitialSection/>
             <CurvedLoop
                 marqueeText="Seja ✦ Bem-Vindo ✦ Ao ✦ Meu ✦ Portfólio ✦"
-                speed={2}
-                curveAmount={400}
+                speed={3}
+                curveAmount={250}
                 direction="left"
                 interactive
                 className="custom-text-style"
