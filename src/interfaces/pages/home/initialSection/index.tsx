@@ -1,5 +1,6 @@
 'use client';
 import SplitText from "@/src/interfaces/components/animations/splitText";
+import TextType from "@/src/interfaces/components/animations/textType";
 
 
 
@@ -21,18 +22,18 @@ export const InitialSection = () => {
                         rootMargin="-100px"
                         textAlign="start"
                     />
-                    <SplitText
-                        text="e sou Desenvolvedor Front-end"
-                        className="text-4xl font-bold text-start font-[poppins]"
-                        delay={50}
-                        duration={1.25}
-                        ease="power3.out"
-                        splitType="chars"
-                        from={{ opacity: 0, y: 40 }}
-                        to={{ opacity: 1, y: 0 }}
-                        threshold={0.1}
-                        rootMargin="-100px"
-                        textAlign="start"
+                    <TextType 
+                        text={["e sou Engenheiro de Software", "Desenvolvedor Front-end", "Desenvolvedor Back-end"]}
+                        typingSpeed={75}
+                        pauseDuration={1500}
+                        showCursor
+                        cursorCharacter="|"
+                        deletingSpeed={50}
+                        variableSpeedEnabled={false}
+                        variableSpeedMin={60}
+                        variableSpeedMax={120}
+                        cursorBlinkDuration={0.5}
+                        className="text-white text-3xl font-bold font-[poppins]"
                     />
                 </div>
                 <div>
