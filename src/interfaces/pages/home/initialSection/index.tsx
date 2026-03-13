@@ -23,12 +23,12 @@ export const InitialSection = () => {
                         textAlign="start"
                     />
                     <TextType 
-                        text={["e sou Engenheiro de Software", "Desenvolvedor Front-end", "Desenvolvedor Back-end"]}
+                        text={["e sou Engenheiro de Software", "Desenvolvedor Front-end", "Desenvolvedor Back-end", "Desenvolvedor Full-Stack"]}
                         typingSpeed={75}
                         pauseDuration={1500}
                         showCursor
                         cursorCharacter="|"
-                        deletingSpeed={50}
+                        deletingSpeed={30}
                         variableSpeedEnabled={false}
                         variableSpeedMin={60}
                         variableSpeedMax={120}

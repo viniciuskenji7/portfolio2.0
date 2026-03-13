@@ -1,6 +1,8 @@
+'use client';
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { icons } from "../../utils/IconsStacks";
+import { useState } from "react";
 
 export interface ProjectsComponentProps {
     projectImage: StaticImageData;
@@ -14,9 +16,15 @@ export const ProjectsComponent = ({ projectImage, projectTitle, projectTecnologi
 
     const iconVerify = projectTecnologies;
 
+    const [isHover, setIsHover] = useState<Boolean>(false);
+
     return (
-        <div className="h-full w-200 hover:transform hover:scale-102 transition-all cursor-pointer">
-            <div className="p-5 border border-white rounded-md w-full h-full bg-white flex flex-col items-start justify-center gap-5 text-black">
+        <div className="h-full w-200 hover:transform hover:scale-102 transition-all">
+            <div 
+                className="p-5 border border-white rounded-md w-full h-full bg-white flex flex-col items-start justify-center gap-5 text-black relative transition-colors"
+                onMouseEnter={() => setIsHover(true)}
+                onMouseLeave={() => setIsHover(false)}
+            >
                 <h3 className="text-2xl font-[poppins]">{projectTitle}</h3>
                 <Image
                     alt="Image Projects"
@@ -25,6 +33,38 @@ export const ProjectsComponent = ({ projectImage, projectTitle, projectTecnologi
                     width={projectImage.width}
                     className="h-full w-full rounded-md"
                 />
+                <div className={
+                    isHover === false ? 'hidden'
+                    :
+                    `absolute z-10 bg-black opacity-25 h-full w-full`
+                }>
+                    <div className={
+                        isHover === false ? 'hidden'
+                        :
+                        `flex flex-col items-center justify-center gap-4 h-full w-full z-12`
+                    }>
+                        <Link
+                            href={projectGithub}
+                            target="_blank"
+                            className="border-2 p-2 rounded-md cursor-pointer text-white font-[rubik] font-bold uppercase hover:bg-white hover:text-black"
+                        >
+                            Acessar Repositório
+                        </Link>
+                        {projectLink ? (
+                            <Link
+                            href={projectGithub}
+                            target="_blank"
+                            className="border-2 p-2 rounded-md cursor-pointer text-white font-bold font-[rubik] uppercase hover:bg-white hover:text-black "
+                        >
+                            Acessar Site
+                        </Link>
+                        ) : 
+                            <p className="text-white">
+                                Projeto em produção...
+                            </p>
+                        }
+                    </div>
+                </div>
                 <div className="flex justify-start items-center gap-2">
                     {icons
                         .filter(item => iconVerify.some(tech => item.title.includes(tech)))
