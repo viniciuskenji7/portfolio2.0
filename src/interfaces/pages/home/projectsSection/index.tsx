@@ -1,4 +1,3 @@
-// import ScrollStack, { ScrollStackItem } from "@/src/interfaces/components/animations/scrollStack"
 import SplitText from "@/src/interfaces/components/animations/splitText"
 import sunnysideProject from '@/src/interfaces/assets/projectsImage/sunnyside-project.png';
 import isweetProject from '@/src/interfaces/assets/projectsImage/isweet-project.png';
@@ -69,10 +68,10 @@ export const ProjectsSection = () => {
     ]
 
     return (
-        <div className="h-full w-full bg-black flex flex-col text-white pb-30">
+        <div className="w-full bg-black flex flex-col text-white pb-16 md:pb-30">
             <SplitText
                 text="projetos"
-                className="text-5xl font-bold text-center uppercase font-[rubik] pl-60 pt-40 pb-10"
+                className="text-4xl md:text-5xl font-bold uppercase font-[rubik] px-4 sm:px-8 md:px-16 lg:pl-60 pt-16 md:pt-40 pb-8 md:pb-10"
                 delay={50}
                 duration={1.25}
                 ease="power3.out"
@@ -83,7 +82,7 @@ export const ProjectsSection = () => {
                 rootMargin="-100px"
                 textAlign="start"
             />
-            <div className="flex justify-center items-center flex-wrap gap-5">
+           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 px-4 sm:px-8 md:px-16 lg:px-24">
                 {projects.map((item, index) => (
                     <ProjectsComponent
                         key={index}

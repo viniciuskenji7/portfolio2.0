@@ -10,12 +10,14 @@ import Link from "next/link";
 
 export const AboutSection = () => {
     return (
-        <div className="h-dvh w-full bg-black flex items-start justify-start p-60">
-            <div className="flex items-start justify-between w-full gap-30">
-                <div className="flex flex-col gap-8 items-start justify-center text-white">
+        <div className="min-h-dvh w-full bg-black flex items-center justify-center px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 py-20 md:py-28">
+            <div className="flex flex-col-reverse lg:flex-row items-center lg:items-start justify-between w-full max-w-7xl gap-12 lg:gap-16">
+                
+                {/* Text Content */}
+                <div className="flex flex-col gap-6 md:gap-8 items-start justify-center text-white w-full lg:max-w-[55%]">
                     <SplitText
                         text="sobre mim"
-                        className="text-5xl font-bold text-center uppercase font-[rubik]"
+                        className="text-4xl md:text-5xl font-bold text-center uppercase font-[rubik]"
                         delay={50}
                         duration={1.25}
                         ease="power3.out"
@@ -28,7 +30,7 @@ export const AboutSection = () => {
                     />
                     <SplitText
                         text="Atualmente Cursando Análise e Desenvolvimento de Sistemas, sou movido pela paixão de evoluir cada vez mais os meus conhecimentos em diversas áreas, sendo a principal delas, a tecnologia."
-                        className="text-2xl font-normal font-[poppins]"
+                        className="text-base sm:text-lg md:text-xl lg:text-2xl font-normal font-[poppins]"
                         delay={20}
                         duration={1.25}
                         ease="power3.out"
@@ -41,7 +43,7 @@ export const AboutSection = () => {
                     />
                     <SplitText
                         text="Conheça minhas stacks, projetos e redes por meio deste Portfólio interativo e se gostar, entre em contato."
-                        className="text-2xl font-normal font-[poppins]"
+                        className="text-base sm:text-lg md:text-xl lg:text-2xl font-normal font-[poppins]"
                         delay={70}
                         duration={1.25}
                         ease="power3.out"
@@ -52,7 +54,7 @@ export const AboutSection = () => {
                         rootMargin="-100px"
                         textAlign="start"
                     />
-                    <div>
+                    <div className="w-full sm:w-auto">
                         <AnimatedContent
                             distance={100}
                             direction="vertical"
@@ -73,7 +75,7 @@ export const AboutSection = () => {
                                         src={linkedin}
                                         height={50}
                                         width={50}
-                                        className="transition-all hover:transform hover:scale-105"
+                                        className="transition-all hover:transform hover:scale-105 w-10 h-10 md:w-[50px] md:h-[50px]"
                                     />
                                 </Link>
                                 <Link target="_blank" href={'https://github.com/viniciuskenji7'}>
@@ -82,21 +84,23 @@ export const AboutSection = () => {
                                         src={github}
                                         height={60}
                                         width={60}
-                                        className="transition-all hover:transform hover:scale-105"
+                                        className="transition-all hover:transform hover:scale-105 w-12 h-12 md:w-[60px] md:h-[60px]"
                                     />
                                 </Link>
                             </div>
-                            <Link 
+                            <Link
                                 download={'Curriculo Vinicius Kenji.pdf'}
                                 href={'https://github.com/viniciuskenji7'}
-                                className="w-full py-3 px-6 cursor-pointer bg-white text-black font-semibold font-[poppins] rounded-lg hover:bg-white/90 transition-colors duration-200"
+                                className="w-full sm:w-auto py-3 px-6 cursor-pointer bg-white text-black font-semibold font-[poppins] rounded-lg hover:bg-white/90 transition-colors duration-200 text-center"
                             >
                                 Baixar CV
                             </Link>
                         </AnimatedContent>
                     </div>
                 </div>
-                <div className="pr-30">
+
+                {/* Profile Card */}
+                <div className="flex items-center justify-center w-full lg:w-auto shrink-0">
                     <ProfileCard
                         name="Vinicius Kenji"
                         title="Software Engineer"
@@ -114,6 +118,7 @@ export const AboutSection = () => {
                         innerGradient="linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)"
                     />
                 </div>
+
             </div>
         </div>
     )

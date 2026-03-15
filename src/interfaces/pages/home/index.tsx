@@ -17,7 +17,7 @@ export const HomePage = () => {
                 curveAmount={250}
                 direction="left"
                 interactive
-                className="custom-text-style"
+                className="text-7xl font-[poppins] hidden md:flex"
             />
             <AboutSection />
             <StacksSection />

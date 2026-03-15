@@ -2,12 +2,9 @@ import LightRays from "@/src/interfaces/components/animations/lightRays"
 import SplitText from "@/src/interfaces/components/animations/splitText"
 import { FormContact } from "@/src/interfaces/components/formContact"
 
-
-
-
 export const ContactSection = () => {
     return (
-        <div className="h-screen w-full bg-black flex flex-col justify-start items-center">
+        <div className="min-h-screen w-full bg-black flex flex-col justify-center items-center px-4 sm:px-8 md:px-16">
             <LightRays
                 raysOrigin="bottom-center"
                 raysColor="#ffffff"
@@ -22,7 +19,7 @@ export const ContactSection = () => {
                 fadeDistance={1}
                 saturation={1}
             >
-                <FormContact/>
+                <FormContact />
             </LightRays>
         </div>
     )

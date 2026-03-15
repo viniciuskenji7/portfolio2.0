@@ -12,7 +12,7 @@ export const CardStack = ({ children }: CardStackProps) => {
         <Magnet padding={100} disabled={false} magnetStrength={10}>
             <StarBorder
                 as="div"
-                className="h-50 w-50"
+                className="h-30 w-30 md:h-50 md:w-50"
                 color="white"
                 speed="4s"
                 thickness={1}

@@ -15,61 +15,63 @@ export interface ProjectsComponentProps {
 export const ProjectsComponent = ({ projectImage, projectTitle, projectTecnologies, projectGithub, projectLink }: ProjectsComponentProps) => {
 
     const iconVerify = projectTecnologies;
-
     const [isHover, setIsHover] = useState<boolean>(false);
 
     return (
-        <div className="h-full w-200 hover:transform hover:scale-102 transition-all">
-            <div 
-                className="p-5 border border-white rounded-md w-full h-full bg-white flex flex-col items-start justify-center gap-5 text-black relative transition-colors"
+        <div className="w-full hover:scale-102 transition-all">
+            <div
+                className="p-4 md:p-5 border border-white rounded-md w-full h-full bg-white flex flex-col items-start justify-center gap-4 md:gap-5 text-black relative transition-colors"
                 onMouseEnter={() => setIsHover(true)}
                 onMouseLeave={() => setIsHover(false)}
             >
-                <h3 className="text-2xl font-[poppins]">{projectTitle}</h3>
+                <h3 className="text-lg md:text-2xl font-[poppins]">{projectTitle}</h3>
                 <Image
                     alt="Image Projects"
                     src={projectImage.src}
                     height={projectImage.height}
                     width={projectImage.width}
-                    className="h-full w-full rounded-md"
+                    className="h-40 sm:h-48 md:h-56 w-full object-cover rounded-md"
                 />
+
+                {/* Hover Overlay */}
                 <div className={
                     isHover === false ? 'hidden'
                     :
-                    `absolute z-10 bg-black/50 h-full w-full left-0`
+                    'absolute z-10 bg-black/50 h-full w-full left-0 top-0 rounded-md'
                 }>
                     <div className={
                         isHover === false ? 'hidden'
                         :
-                        `flex flex-col items-center justify-center gap-5 h-full w-full z-50`
+                        'flex flex-col items-center justify-center gap-4 h-full w-full z-50'
                     }>
-                        <Link
-                            href={projectGithub}
-                            target="_blank"
-                            className="border p-2 rounded-md cursor-pointer transition-colors delay-75 text-white font-[poppins] hover:bg-white hover:text-black"
-                        >
-                            Acessar Repositório
-                        </Link>
                         {projectLink ? (
                             <Link
-                            href={projectLink}
-                            target="_blank"
-                            className="border p-2 rounded-md cursor-pointer transition-colors delay-75 text-white font-[poppins] hover:bg-white hover:text-black "
-                        >
-                            Acessar Site
-                        </Link>
-                        ) : 
-                            <p className="text-white">
+                                href={projectLink}
+                                target="_blank"
+                                className="border px-4 py-2 rounded-md cursor-pointer transition-colors delay-75 text-white text-sm md:text-base font-[poppins] hover:bg-white hover:text-black"
+                            >
+                                Acessar Site
+                            </Link>
+                        ) :
+                            <p className="text-white text-sm md:text-base font-[poppins]">
                                 Projeto em produção...
                             </p>
                         }
+                        <Link
+                            href={projectGithub}
+                            target="_blank"
+                            className="border px-4 py-2 rounded-md cursor-pointer transition-colors delay-75 text-white text-sm md:text-base font-[poppins] hover:bg-white hover:text-black"
+                        >
+                            Acessar Repositório
+                        </Link>
                     </div>
                 </div>
-                <div className="flex justify-start items-center gap-2">
+
+                <div className="flex flex-wrap justify-start items-center gap-2">
                     {icons
                         .filter(item => iconVerify.some(tech => item.title.includes(tech)))
                         .map((item, index) => (
-                            <item.Icon key={index} className="w-15 h-15" />
+                            <item.Icon key={index} className="w-8 h-8 md:w-10 md:h-10" />
                         ))
                     }
                 </div>
