@@ -10,7 +10,10 @@ import Link from "next/link";
 
 export const AboutSection = () => {
     return (
-        <div className="min-h-dvh w-full bg-black flex items-center justify-center px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 py-20 md:py-28">
+        <section 
+            className="min-h-dvh w-full bg-black flex items-center justify-center px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 py-20 md:py-28"
+            id="about"
+        >
             <div className="flex flex-col-reverse lg:flex-row items-center lg:items-start justify-between w-full max-w-7xl gap-12 lg:gap-16">
                 
                 {/* Text Content */}
@@ -59,7 +62,7 @@ export const AboutSection = () => {
                             distance={100}
                             direction="vertical"
                             reverse={false}
-                            duration={1.25}
+                            duration={1.00}
                             ease="power3.out"
                             initialOpacity={0}
                             animateOpacity
@@ -120,6 +123,6 @@ export const AboutSection = () => {
                 </div>
 
             </div>
-        </div>
+        </section>
     )
 }

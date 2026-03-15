@@ -17,7 +17,7 @@ export const HomePage = () => {
                 curveAmount={250}
                 direction="left"
                 interactive
-                className="text-7xl font-[poppins] hidden md:flex"
+                className="text-7xl font-[poppins] hidden md:flex font-bold"
             />
             <AboutSection />
             <StacksSection />

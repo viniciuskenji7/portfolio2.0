@@ -4,7 +4,10 @@ import { FormContact } from "@/src/interfaces/components/formContact"
 
 export const ContactSection = () => {
     return (
-        <div className="min-h-screen w-full bg-black flex flex-col justify-center items-center px-4 sm:px-8 md:px-16">
+        <section 
+            className="min-h-screen w-full bg-black flex flex-col justify-center items-center px-4 sm:px-8 md:px-16"
+            id="contact"    
+        >
             <LightRays
                 raysOrigin="bottom-center"
                 raysColor="#ffffff"
@@ -21,6 +24,6 @@ export const ContactSection = () => {
             >
                 <FormContact />
             </LightRays>
-        </div>
+        </section>
     )
 }

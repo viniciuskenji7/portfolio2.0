@@ -6,7 +6,10 @@ import { icons } from "@/src/interfaces/utils/IconsStacks";
 export const StacksSection = () => {
 
     return (
-        <div className="min-h-screen w-full bg-black flex items-start justify-center px-4 sm:px-8 md:px-16 lg:px-24 py-16 md:py-26">
+        <section 
+            className="min-h-screen w-full bg-black flex items-start justify-center px-4 sm:px-8 md:px-16 lg:px-24 py-16 md:py-26"
+            id="stacks"
+        >
             <div className="w-full flex flex-col items-center justify-start text-white gap-12 md:gap-20">
                 <SplitText
                     text="tecnologias"
@@ -32,6 +35,6 @@ export const StacksSection = () => {
                     ))}
                 </div>
             </div>
-        </div>
+        </section>
     );
 }

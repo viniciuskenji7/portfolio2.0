@@ -68,10 +68,13 @@ export const ProjectsSection = () => {
     ]
 
     return (
-        <div className="w-full bg-black flex flex-col text-white pb-16 md:pb-30">
+        <section 
+            className="w-full bg-black flex flex-col text-white pb-16 md:pb-30"
+            id="projects"
+        >
             <SplitText
                 text="projetos"
-                className="text-4xl md:text-5xl font-bold uppercase font-[rubik] px-4 sm:px-8 md:px-16 lg:pl-60 pt-16 md:pt-40 pb-8 md:pb-10"
+                className="text-4xl md:text-5xl font-bold uppercase font-[rubik] px-4 sm:px-8 md:px-16 lg:pl-22 pt-16 md:pt-40 pb-8 md:pb-10"
                 delay={50}
                 duration={1.25}
                 ease="power3.out"
@@ -94,6 +97,6 @@ export const ProjectsSection = () => {
                     />
                 ))}
             </div>
-        </div>
+        </section>
     )
 }
