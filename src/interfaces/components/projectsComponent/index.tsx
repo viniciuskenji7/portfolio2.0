@@ -16,7 +16,7 @@ export const ProjectsComponent = ({ projectImage, projectTitle, projectTecnologi
 
     const iconVerify = projectTecnologies;
 
-    const [isHover, setIsHover] = useState<Boolean>(false);
+    const [isHover, setIsHover] = useState<boolean>(false);
 
     return (
         <div className="h-full w-200 hover:transform hover:scale-102 transition-all">
@@ -36,25 +36,25 @@ export const ProjectsComponent = ({ projectImage, projectTitle, projectTecnologi
                 <div className={
                     isHover === false ? 'hidden'
                     :
-                    `absolute z-10 bg-black opacity-25 h-full w-full`
+                    `absolute z-10 bg-black/50 h-full w-full left-0`
                 }>
                     <div className={
                         isHover === false ? 'hidden'
                         :
-                        `flex flex-col items-center justify-center gap-4 h-full w-full z-12`
+                        `flex flex-col items-center justify-center gap-5 h-full w-full z-50`
                     }>
                         <Link
                             href={projectGithub}
                             target="_blank"
-                            className="border-2 p-2 rounded-md cursor-pointer text-white font-[rubik] font-bold uppercase hover:bg-white hover:text-black"
+                            className="border p-2 rounded-md cursor-pointer transition-colors delay-75 text-white font-[poppins] hover:bg-white hover:text-black"
                         >
                             Acessar Repositório
                         </Link>
                         {projectLink ? (
                             <Link
-                            href={projectGithub}
+                            href={projectLink}
                             target="_blank"
-                            className="border-2 p-2 rounded-md cursor-pointer text-white font-bold font-[rubik] uppercase hover:bg-white hover:text-black "
+                            className="border p-2 rounded-md cursor-pointer transition-colors delay-75 text-white font-[poppins] hover:bg-white hover:text-black "
                         >
                             Acessar Site
                         </Link>
