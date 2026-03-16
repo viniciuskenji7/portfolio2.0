@@ -1,8 +1,18 @@
+import { SubmitHandler, useForm } from "react-hook-form";
 import SplitText from "../animations/splitText";
-
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Email } from "@/src/schemas/contactSchema";
+import { IEmail } from "@/src/types/IEmail";
 
 
 export const FormContact = () => {
+
+    const { register, handleSubmit, formState: { errors } } = useForm<IEmail>({
+        resolver: zodResolver(Email)
+    });
+
+    const onSubmit: SubmitHandler<IEmail> = (data) => console.log(data);
+
     return (
         <div className="flex flex-col items-center justify-center gap-12 pt-40 px-4 w-full h-full">
             <SplitText 
@@ -20,7 +30,10 @@ export const FormContact = () => {
             />
 
             {/* Demo Contact Form */}
-            <form className="w-full max-w-md space-y-6 bg-black/50 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
+            <form
+                onSubmit={handleSubmit(onSubmit)} 
+                className="w-full max-w-md space-y-6 bg-black/50 backdrop-blur-sm p-8 rounded-2xl border border-white/10"
+            >
                 <div>
                     <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-2">
                         Nome
@@ -29,6 +42,7 @@ export const FormContact = () => {
                         type="text"
                         id="name"
                         placeholder="Seu nome"
+                        {...register('name')}
                         className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-white/50 focus:ring-1 focus:ring-white/50 transition-all"
                     />
                 </div>
@@ -41,6 +55,7 @@ export const FormContact = () => {
                         type="email"
                         id="email"
                         placeholder="seu@email.com"
+                        {...register('email')}
                         className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-white/50 focus:ring-1 focus:ring-white/50 transition-all"
                     />
                 </div>
@@ -53,6 +68,7 @@ export const FormContact = () => {
                         id="message"
                         rows={4}
                         placeholder="Como posso te ajudar?"
+                        {...register('message')}
                         className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-white/50 focus:ring-1 focus:ring-white/50 transition-all resize-none"
                     />
                 </div>
