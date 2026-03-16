@@ -30,7 +30,7 @@ export const ProjectsComponent = ({ projectImage, projectTitle, projectTecnologi
                     src={projectImage.src}
                     height={projectImage.height}
                     width={projectImage.width}
-                    className="h-40 sm:h-48 md:h-56 w-full object-cover rounded-md"
+                    className="w-full aspect-video object-cover rounded-md"
                 />
 
                 {/* Hover Overlay */}
