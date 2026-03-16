@@ -12,6 +12,7 @@ export const ThemeProvider = ({children}: ThemeProviderProps) => {
     const menuItems = [
         { label: 'Home', ariaLabel: 'Go to home page', link: '#home' },
         { label: 'About', ariaLabel: 'Learn about me', link: '#about' },
+        { label: 'Stacks', ariaLabel: 'My technologies', link: '#stacks' },
         { label: 'Projects', ariaLabel: 'View my projects', link: '#projects' },
         { label: 'Contact', ariaLabel: 'Get in touch', link: '#contact' }
     ];
