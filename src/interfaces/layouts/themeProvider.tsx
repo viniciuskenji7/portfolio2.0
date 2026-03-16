@@ -10,11 +10,11 @@ interface ThemeProviderProps {
 export const ThemeProvider = ({children}: ThemeProviderProps) => {
     
     const menuItems = [
-        { label: 'Home', ariaLabel: 'Go to home page', link: '#home' },
-        { label: 'About', ariaLabel: 'Learn about me', link: '#about' },
-        { label: 'Stacks', ariaLabel: 'My technologies', link: '#stacks' },
-        { label: 'Projects', ariaLabel: 'View my projects', link: '#projects' },
-        { label: 'Contact', ariaLabel: 'Get in touch', link: '#contact' }
+        { label: 'Início', ariaLabel: 'Va para o início da pagina', link: '#home' },
+        { label: 'Sobre', ariaLabel: 'Saiba mais sobre mim', link: '#about' },
+        { label: 'Techs', ariaLabel: 'Minhas tecnologias', link: '#stacks' },
+        { label: 'Projetos', ariaLabel: 'Veja meus projetos', link: '#projects' },
+        { label: 'Contato', ariaLabel: 'Entre em contato', link: '#contact' }
     ];
     
     const socialItems = [
