@@ -4,6 +4,7 @@ interface CurvedLoopProps {
   marqueeText?: string;
   speed?: number;
   className?: string;
+  containerClassName?: string;
   curveAmount?: number;
   direction?: 'left' | 'right';
   interactive?: boolean;
@@ -13,6 +14,7 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
   marqueeText = '',
   speed = 2,
   className,
+  containerClassName,
   curveAmount = 400,
   direction = 'left',
   interactive = true
@@ -109,7 +111,7 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
 
   return (
     <div
-      className="flex items-center justify-center w-full bg-black py-8 md:py-12 pb-16 md:pb-35"
+      className={`flex items-center justify-center w-full bg-black py-8 md:py-12 pb-16 md:pb-35 ${containerClassName ?? ''}`}
       style={{ visibility: ready ? 'visible' : 'hidden', cursor: cursorStyle }}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}

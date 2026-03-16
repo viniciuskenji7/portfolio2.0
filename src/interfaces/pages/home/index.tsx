@@ -18,6 +18,7 @@ export const HomePage = () => {
                 direction="left"
                 interactive
                 className="text-7xl font-[poppins] hidden md:flex font-bold"
+                containerClassName='hidden md:flex'
             />
             <AboutSection />
             <StacksSection />
