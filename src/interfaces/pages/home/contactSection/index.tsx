@@ -4,26 +4,26 @@ import { FormContact } from "@/src/interfaces/components/formContact"
 
 export const ContactSection = () => {
     return (
-        <section 
-            className="min-h-screen w-full bg-black flex flex-col justify-center items-center px-4 sm:px-8 md:px-16"
-            id="contact"    
+        <LightRays
+            raysOrigin="bottom-center"
+            raysColor="#ffffff"
+            raysSpeed={1}
+            lightSpread={0.5}
+            rayLength={3}
+            followMouse={true}
+            mouseInfluence={0.15}
+            noiseAmount={0}
+            distortion={0}
+            pulsating={false}
+            fadeDistance={1}
+            saturation={1}
+            className="min-h-screen w-full bg-black flex flex-col justify-center items-center px-4 sm:px-8 md:px-16 "
         >
-            <LightRays
-                raysOrigin="bottom-center"
-                raysColor="#ffffff"
-                raysSpeed={1}
-                lightSpread={0.5}
-                rayLength={3}
-                followMouse={true}
-                mouseInfluence={0.15}
-                noiseAmount={0}
-                distortion={0}
-                pulsating={false}
-                fadeDistance={1}
-                saturation={1}
+            <section
+                id="contact"
             >
                 <FormContact />
-            </LightRays>
-        </section>
+            </section>
+        </LightRays>
     )
 }
