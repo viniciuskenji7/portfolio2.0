@@ -7,8 +7,12 @@ import Image from "next/image";
 import linkedin from '@/src/interfaces/assets/linkedin.png';
 import github from '@/src/interfaces/assets/github.png';
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export const AboutSection = () => {
+
+    const router = useRouter();
+
     return (
         <section 
             className="min-h-dvh w-full bg-black flex items-center justify-center px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 py-20 md:py-28"
@@ -114,7 +118,7 @@ export const AboutSection = () => {
                         showUserInfo={true}
                         enableTilt={true}
                         enableMobileTilt={true}
-                        onContactClick={() => console.log('Contact clicked')}
+                        onContactClick={() => router.push('/#contact', {scroll: true})}
                         behindGlowColor="rgba(125, 190, 255, 0.67)"
                         iconUrl={avatar.src}
                         behindGlowEnabled
