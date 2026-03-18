@@ -37,14 +37,12 @@ export const ThemeProvider = ({children}: ThemeProviderProps) => {
                 colors={['#B19EEF', '#5227FF']}
                 logoUrl={logo}
                 accentColor="#5227FF"
-                onMenuOpen={() => console.log('Menu opened')}
-                onMenuClose={() => console.log('Menu closed')}
             />
             <Particles
                 particleColors={["#ffffff"]}
-                particleCount={500}
+                particleCount={7000}
                 particleSpread={10}
-                speed={0.2}
+                speed={0.01}
                 particleBaseSize={100}
                 alphaParticles={false}
                 disableRotation={false}

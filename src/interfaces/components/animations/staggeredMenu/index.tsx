@@ -104,6 +104,8 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
       gsap.set(textInner, { yPercent: 0 });
 
       if (toggleBtnRef.current) gsap.set(toggleBtnRef.current, { color: menuButtonColor });
+      if (panel) gsap.set(panel, { visibility: 'visible' });
+      if (preContainer) gsap.set(preContainer, { visibility: 'visible' });
     });
     return () => ctx.revert();
   }, [menuButtonColor, position]);
@@ -395,6 +397,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
       >
         <div
           ref={preLayersRef}
+          style={{ visibility: 'hidden' }} 
           className="sm-prelayers absolute top-0 right-0 bottom-0 pointer-events-none z-[5]"
           aria-hidden="true"
         >
@@ -478,7 +481,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
           id="staggered-menu-panel"
           ref={panelRef}
           className="staggered-menu-panel absolute top-0 right-0 h-full bg-white flex flex-col p-[6em_2em_2em_2em] overflow-y-auto z-10 backdrop-blur-[12px] pointer-events-auto"
-          style={{ WebkitBackdropFilter: 'blur(12px)' }}
+          style={{ WebkitBackdropFilter: 'blur(12px)', visibility: 'hidden' }}
           aria-hidden={!open}
         >
           <div className="sm-panel-inner flex-1 flex flex-col gap-5">
