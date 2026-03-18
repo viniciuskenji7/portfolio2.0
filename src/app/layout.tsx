@@ -4,6 +4,7 @@ import { Poppins } from 'next/font/google';
 import { Rubik } from 'next/font/google';
 import { Metadata } from "next";
 import { Toaster } from "react-hot-toast";
+import SplashScreen from "../interfaces/components/splashScreen";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -32,8 +33,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.className} ${rubik.className} antialiased w-full overflow-x-hidden h-full`}>        
-          <ThemeProvider>{children}</ThemeProvider>
-          <Toaster position="top-right" />
+          <SplashScreen>
+            <ThemeProvider>{children}</ThemeProvider>
+            <Toaster position="top-right" />
+          </SplashScreen>
       </body>
     </html>
   );
