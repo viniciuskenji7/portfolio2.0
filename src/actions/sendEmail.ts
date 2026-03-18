@@ -21,7 +21,6 @@ export async function sendContactEmail(data: IEmail): Promise<T> {
 
         return {success: true, resendData};
     } catch (err) {
-        console.error("Erro Do Resend: ", err)
         return {success: false, error: "Falha na comunicação"};
     }
 }

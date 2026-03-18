@@ -28,9 +28,6 @@ export const InitialSection = () => {
                         showCursor
                         cursorCharacter="|"
                         deletingSpeed={30}
-                        variableSpeedEnabled={false}
-                        variableSpeedMin={60}
-                        variableSpeedMax={120}
                         cursorBlinkDuration={0.5}
                         className="text-white text-xl sm:text-2xl md:text-3xl font-bold font-[poppins]"
                     />
@@ -39,7 +36,7 @@ export const InitialSection = () => {
                     <SplitText
                         text="Com foco em construção de soluções robustas e bem estruturadas, atuando principalmente no ecossistema web com TypeScript, Next.js e arquiteturas modernas de front-end. Aqui você encontrará projetos que refletem minha preocupação com organização de código, performance, escalabilidade e experiência do usuário."
                         className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-normal text-start font-[poppins]"
-                        delay={30}
+                        delay={10}
                         duration={1.00}
                         ease="power3.out"
                         splitType="chars"
