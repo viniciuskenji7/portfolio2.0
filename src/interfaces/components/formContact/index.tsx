@@ -3,15 +3,29 @@ import SplitText from "../animations/splitText";
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Email } from "@/src/schemas/contactSchema";
 import { IEmail } from "@/src/types/IEmail";
+import { sendContactEmail } from "@/src/actions/sendEmail";
+import toast from 'react-hot-toast';
 
 
 export const FormContact = () => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm<IEmail>({
+    const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<IEmail>({
         resolver: zodResolver(Email)
     });
 
-    const onSubmit: SubmitHandler<IEmail> = (data) => console.log(data);
+    const onSubmit: SubmitHandler<IEmail> = async (data) => {
+        const sendEmailPromise = sendContactEmail(data).then((result) => {
+            if (!result.success) throw new Error(result.error as string);
+            reset();
+            return result;
+        });
+
+        toast.promise(sendEmailPromise, {
+            loading: 'Enviando email...',
+            success: 'Email enviado com sucesso',
+            error: 'Erro ao enviar email'
+        })
+    };
 
     return (
         <div className="flex flex-col items-center justify-center gap-12 pt-40 px-4 w-full h-full">
@@ -45,6 +59,7 @@ export const FormContact = () => {
                         {...register('name')}
                         className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-white/50 focus:ring-1 focus:ring-white/50 transition-all"
                     />
+                    {errors.name && <span className="text-red-400">{errors.name.message}</span>}
                 </div>
 
                 <div>
@@ -58,6 +73,7 @@ export const FormContact = () => {
                         {...register('email')}
                         className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-white/50 focus:ring-1 focus:ring-white/50 transition-all"
                     />
+                    {errors.email && <span className="text-red-400">{errors.email.message}</span>}
                 </div>
 
                 <div>
@@ -71,13 +87,14 @@ export const FormContact = () => {
                         {...register('message')}
                         className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-white/50 focus:ring-1 focus:ring-white/50 transition-all resize-none"
                     />
+                    {errors.message && <span className="text-red-400">{errors.message.message}</span>}
                 </div>
 
                 <button
                     type="submit"
                     className="w-full py-3 px-6 cursor-pointer bg-white font-[poppins] text-black font-semibold rounded-lg hover:bg-white/90 transition-colors duration-200"
                 >
-                    Enviar Mensagem
+                    {isSubmitting ? 'Enviando...' : 'Enviar'}
                 </button>
             </form>
 
