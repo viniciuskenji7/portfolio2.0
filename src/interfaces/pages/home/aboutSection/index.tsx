@@ -95,13 +95,13 @@ export const AboutSection = () => {
                                     />
                                 </Link>
                             </div>
-                            <Link
+                            <a
                                 download={'Curriculo Vinicius Kenji.pdf'}
-                                href={'https://github.com/viniciuskenji7'}
+                                href={'/curriculo-vinicius-kenji.pdf'}
                                 className="w-full sm:w-auto py-3 px-6 cursor-pointer bg-white text-black font-semibold font-[poppins] rounded-lg hover:bg-white/90 transition-colors duration-200 text-center"
                             >
                                 Baixar CV
-                            </Link>
+                            </a>
                         </AnimatedContent>
                     </div>
                 </div>
