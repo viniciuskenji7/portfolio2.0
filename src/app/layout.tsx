@@ -18,11 +18,61 @@ const rubik = Rubik({
   display: 'swap',
 });
 
+const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+
 export const metadata: Metadata = {
-  title: 'Kenji!',
-  description: 'Este é o Portfólio Animado do Desenvolvedor Vinicius Kenji e nele, contém seus projetos, stacks e informações gerais. Entre em contato caso goste!',
-  
-}
+    title: {
+        default: 'Kenji | Dev',
+        template: '%s | Kenji',
+    },
+    description: 'Portfólio animado do desenvolvedor Vinicius Kenji. Confira projetos, stacks e entre em contato!',
+    keywords: ['desenvolvedor', 'portfolio', 'frontend', 'react', 'next.js', 'Vinicius Kenji'],
+    authors: [{ name: 'Vinicius Kenji' }],
+
+    alternates: {
+        canonical: baseUrl,
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-image-preview': 'large',
+        },
+    },
+
+    openGraph: {
+        type: 'website',
+        locale: 'pt_BR',
+        url: baseUrl,
+        siteName: 'Kenji | Dev',
+        title: 'Kenji | Dev',
+        description: 'Portfólio animado do desenvolvedor Vinicius Kenji. Confira projetos, stacks e entre em contato!',
+        images: [
+            {
+                url: '/image.svg',
+                width: 1200,
+                height: 630,
+                alt: 'Kenji | Dev',
+            },
+        ],
+    },
+
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Kenji | Dev',
+        description: 'Portfólio animado do desenvolvedor Vinicius Kenji. Confira projetos, stacks e entre em contato!',
+        images: ['/image.svg'],
+    },
+
+    icons: {
+        icon: '/favicon.ico',
+        apple: '/apple-touch-icon.png',
+    },
+
+    manifest: '/site.webmanifest',
+};
 
 export default function RootLayout({
   children,
