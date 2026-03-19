@@ -1,6 +1,5 @@
 'use client';
 import Magnet from "../animations/magnetAnimation";
-import SpotlightCard from "../animations/spotlightCard";
 import StarBorder from "../animations/starBorder";
 
 interface CardStackProps {

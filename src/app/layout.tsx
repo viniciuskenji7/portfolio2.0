@@ -18,7 +18,7 @@ const rubik = Rubik({
   display: 'swap',
 });
 
-const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+const baseUrl = new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000');
 
 export const metadata: Metadata = {
     title: {

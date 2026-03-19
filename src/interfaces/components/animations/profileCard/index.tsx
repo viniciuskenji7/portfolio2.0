@@ -1,3 +1,4 @@
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import Image from 'next/image';
 import React, { useEffect, useRef, useCallback, useMemo, useState } from 'react';
 
@@ -31,7 +32,7 @@ if (typeof document !== 'undefined' && !document.getElementById(KEYFRAMES_ID)) {
 }
 
 interface ProfileCardProps {
-  avatarUrl?: string;
+  avatarUrl: string | StaticImport;
   iconUrl?: string;
   grainUrl?: string;
   innerGradient?: string;
@@ -42,7 +43,7 @@ interface ProfileCardProps {
   enableTilt?: boolean;
   enableMobileTilt?: boolean;
   mobileTiltSensitivity?: number;
-  miniAvatarUrl?: string;
+  miniAvatarUrl?: string | StaticImport;
   name?: string;
   title?: string;
   handle?: string;
@@ -570,7 +571,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                         onError={e => {
                           const t = e.target as HTMLImageElement;
                           t.style.opacity = '0.5';
-                          if (avatarUrl) t.src = avatarUrl;
+                          if (avatarUrl) t.src = typeof avatarUrl === 'string' ? avatarUrl : '';
                         }}
                       />
                       )}

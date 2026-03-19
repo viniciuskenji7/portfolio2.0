@@ -2,7 +2,7 @@
 import { resend } from "../lib/resend";
 import { IEmail } from "../types/IEmail";
 
-export async function sendContactEmail(data: IEmail): Promise<T> {
+export async function sendContactEmail(data: IEmail){
     try {
         const { data: resendData, error } = await resend.emails.send({
             from: 'onboarding@resend.dev',
