@@ -11,7 +11,7 @@ export default function SplashScreen({ children }: { children: React.ReactNode }
         setTimeout(() => {
             setInterval(() => {
                 setLoading(false);
-            }, 1500);
+            }, 2000);
         })
     }, []);
 
