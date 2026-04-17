@@ -150,7 +150,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
 
       const stillFar = Math.abs(targetX - currentX) > 0.05 || Math.abs(targetY - currentY) > 0.05;
 
-      if (stillFar || document.hasFocus()) {
+      if (stillFar && document.hasFocus()) {
         rafId = requestAnimationFrame(step);
       } else {
         running = false;
@@ -166,7 +166,9 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
       if (running) return;
       running = true;
       lastTs = 0;
-      rafId = requestAnimationFrame(step);
+      if (document.hasFocus()) {
+        rafId = requestAnimationFrame(step);
+      }
     };
 
     return {
@@ -223,6 +225,10 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
 
       shell.classList.add('active');
       shell.classList.add('entering');
+      // Enable shine animation on enter
+      const shineEl = shell.querySelector('[style*="pc-holo-bg"]') as HTMLElement;
+      if (shineEl) shineEl.style.animationPlayState = 'running';
+      
       if (enterTimerRef.current) window.clearTimeout(enterTimerRef.current);
       enterTimerRef.current = window.setTimeout(() => {
         shell.classList.remove('entering');
@@ -237,6 +243,10 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   const handlePointerLeave = useCallback((): void => {
     const shell = shellRef.current;
     if (!shell || !tiltEngine) return;
+
+    // Pause shine animation on leave
+    const shineEl = shell.querySelector('[style*="pc-holo-bg"]') as HTMLElement;
+    if (shineEl) shineEl.style.animationPlayState = 'paused';
 
     tiltEngine.toCenter();
 
@@ -287,9 +297,9 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
     const pointerLeaveHandler = handlePointerLeave as EventListener;
     const deviceOrientationHandler = handleDeviceOrientation as EventListener;
 
-    shell.addEventListener('pointerenter', pointerEnterHandler);
-    shell.addEventListener('pointermove', pointerMoveHandler);
-    shell.addEventListener('pointerleave', pointerLeaveHandler);
+    shell.addEventListener('pointerenter', pointerEnterHandler, { passive: true });
+    shell.addEventListener('pointermove', pointerMoveHandler, { passive: true });
+    shell.addEventListener('pointerleave', pointerLeaveHandler, { passive: true });
 
     const handleClick = (): void => {
       if (!enableMobileTilt || location.protocol !== 'https:') return;
@@ -387,7 +397,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
     maskPosition: 'top calc(200% - (var(--background-y) * 5)) left calc(100% - var(--background-x))',
     filter: 'brightness(0.50) contrast(0.30) saturate(0.10) opacity(0.5)',
     animation: 'pc-holo-bg 18s linear infinite',
-    animationPlayState: 'running' as const,
+    animationPlayState: 'paused' as const,
     mixBlendMode: 'color-dodge' as const,
     transform: 'translate3d(0, 0, 1px)',
     overflow: 'hidden' as const,
@@ -446,7 +456,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   return (
     <div
       ref={wrapRef}
-      className={`relative touch-none ${className}`.trim()}
+      className={`relative touch-pan-y ${className}`.trim()}
       style={{ perspective: '500px', transform: 'translate3d(0, 0, 0.1px)', ...cardStyle } as React.CSSProperties}
     >
       {behindGlowEnabled && (
@@ -519,7 +529,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
             >
               {avatarUrl && (
               <Image
-                className="w-full absolute left-1/2 bottom-px will-change-transform transition-transform duration-120 ease-out"
+                className="w-full absolute left-1/2 bottom-px transition-transform duration-120 ease-out"
                 src={avatarUrl}
                 alt={`${name || 'User'} avatar`}
                 width={200}
