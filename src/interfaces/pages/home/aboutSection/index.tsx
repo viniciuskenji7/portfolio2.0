@@ -116,7 +116,7 @@ export const AboutSection = () => {
                         contactText="Entre em Contato"
                         avatarUrl={avatar.src}
                         showUserInfo={true}
-                        enableTilt={true}
+                        enableTilt={false}
                         enableMobileTilt={false}
                         onContactClick={() => router.push('/#contact', {scroll: true})}
                         behindGlowColor="rgba(125, 190, 255, 0.67)"
